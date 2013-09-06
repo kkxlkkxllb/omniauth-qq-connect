@@ -9,7 +9,7 @@ module OmniAuth
 
       option :client_options, {
         :site => 'https://graph.qq.com/oauth2.0/',
-        :authorize_url => '/oauth2.0/authorize',
+        :authorize_url => '/oauth2.0/authorize?scope=get_user_info,add_share,add_t,add_pic_t,get_info,get_repost_list',
         :token_url => "/oauth2.0/token"
       }
 
@@ -32,14 +32,15 @@ module OmniAuth
         end
       end
 
-      info do 
-        { 
+      info do
+        {
           :nickname => raw_info['nickname'],
           :name => raw_info['nickname'], # Since it is required, fill it with nickname
-          :image => raw_info['figureurl_1'],
+          :image => raw_info['figureurl_2'],
+          :gender => raw_info['gender']
         }
       end
-      
+
       extra do
         {
           :raw_info => raw_info
