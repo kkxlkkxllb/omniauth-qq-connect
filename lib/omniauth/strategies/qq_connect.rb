@@ -9,7 +9,7 @@ module OmniAuth
 
       option :client_options, {
         :site => 'https://graph.qq.com/oauth2.0/',
-        :authorize_url => '/oauth2.0/authorize?scope=get_user_info,add_share,add_t,add_pic_t,get_info,get_repost_list',
+        :authorize_url => '/oauth2.0/authorize',
         :token_url => "/oauth2.0/token"
       }
 
@@ -57,6 +57,7 @@ module OmniAuth
               :oauth_consumer_key => options[:client_id],
               :access_token => access_token.token
             }, :parse => :json).parsed
+          #TODO get_info
         end
       end
     end
