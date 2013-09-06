@@ -57,7 +57,6 @@ module OmniAuth
               :oauth_consumer_key => options[:client_id],
               :access_token => access_token.token
             }, :parse => :json).parsed
-          #TODO get_info
         end
       end
     end
